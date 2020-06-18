@@ -42,6 +42,11 @@ parser.add_argument(
     type=int,
     default=0)
 
+parser.add_argument(
+    "-n", help = 'keep original header (1/0, default: 0)',
+    type=int,
+    default=0)
+
 
 args = parser.parse_args()
 
@@ -50,6 +55,7 @@ if1 = args.i
 of1 = args.o
 desc1 = args.e
 desc2 = args.p
+desc3 = args.n
 minLength = args.l
 
 count = 0
@@ -57,12 +63,19 @@ count = 0
 handle = open(if1)
 seqOut = open(of1, "w")
 
+
+if desc3 > 1:
+	print "'n' must be 0 (F) or 1 (T)"
+	sys.exit()
+
 for seq_record in SeqIO.parse(handle, "fasta"):
 	if len(seq_record.seq) > minLength:
-		strain = re.findall(desc1, seq_record.id)[desc2]
+		if desc3 == 0:
+			strain = re.findall(desc1, seq_record.id)[desc2]
+		else:
+			strain = seq_record.id
 		seqOut.write(">"+strain+"\n")
-		seqOut.write(str(seq_record.seq.lower())+"\n")		
-
+		seqOut.write(str(seq_record.seq.lower())+"\n")
 		count +=1
 
 print str(count)+" sequences extracted"
