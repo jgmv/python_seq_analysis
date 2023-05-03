@@ -6,3 +6,6 @@ Filters fasta sequences by size and rename.
 
 ### subset_fasta_seqs.py
 Subsets sequences from a fasta file.
+
+### ab1_to_fastq.py
+Pair-end assemble Sanger sequences provided as ab1 files
