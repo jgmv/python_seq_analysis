@@ -16,7 +16,7 @@ import os
 
 # input arguments parameters
 parser = argparse.ArgumentParser(
-    description='Pair-end assemble Sanger seuquences provided as ab1 files.')
+    description='Pair-end assemble Sanger sequences provided as ab1 files.')
 
 parser.add_argument(
     "fwd",
