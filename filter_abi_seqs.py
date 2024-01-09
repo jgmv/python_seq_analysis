@@ -88,7 +88,7 @@ for filename in path:
 		seq_qual = np.array(seq_record.letter_annotations["phred_quality"])
 		seq_q20 = round(100 * (seq_qual > 20).sum() / len(seq_record.seq), 1)
 		seq_qual = round(seq_qual.mean(), 1)
-		seqOut.write(seq_record.id+"\t"+str(seq_len)+"\t"+str(seq_qual)+"\t"+str(seq_q20)+"\t"+str(seq)+"\n")
+		seqOut.write(seq_record.id+"\t"+str(seq_len)+"\t"+str(seq_qual)+"\t"+str(seq_q20)+"\t"+str(seq)+"\t"+filename+"\n")
 		count +=1
 	else:
 		seqOut.write(">"+seq_record.id+" "+str(seq_len)+"\n"+str(seq)+"\n")
