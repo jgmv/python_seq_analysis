@@ -53,9 +53,9 @@ for seq_record in SeqIO.parse(handle, "fasta"):
 
 for i in names:
     if i not in processed:
-		print i+" not in fasta file."
+		print(i+" not in fasta file.")
 
-print str(count)+" sequences extracted"
+print(str(count)+" sequences extracted")
 
 handle.close()
 seqOut.close()
